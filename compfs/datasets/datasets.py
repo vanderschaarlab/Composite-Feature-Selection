@@ -421,7 +421,7 @@ class MNIST(Dataset):
 
     def __init__(self, config_dict):
         data = visiondatasets.MNIST(
-            root="",
+            root=Path(__file__).parent,
             train=config_dict["train"],
             transform=transforms.transforms.ToTensor(),
             download=True,
