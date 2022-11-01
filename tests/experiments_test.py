@@ -85,6 +85,7 @@ def test_chem(experiment_name: str, model_name: str) -> None:
     )
 
 
+@pytest.mark.slow
 @pytest.mark.parametrize("model_name", ["compfs", "stg"])
 def test_mnist(model_name: str) -> None:
     experiment_no = "1"

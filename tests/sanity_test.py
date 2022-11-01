@@ -9,10 +9,7 @@ from compfs.thresholding_functions import make_lambda_threshold
 
 # Set and print device.
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-
 # These can be changed to run your own data.
-np.random.seed(0)
-
 X_train = np.random.normal(size=(20000, 500))
 y_train = np.array([((x[0] > 0.55) or (x[1] > 0.55)) for x in X_train])
 X_val = np.random.normal(size=(200, 500))
