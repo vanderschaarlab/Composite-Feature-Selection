@@ -11,6 +11,7 @@ from torch.distributions.multivariate_normal import MultivariateNormal
 from torch.utils.data import Dataset
 
 from compfs.datasets import chem_featuriser
+from compfs.datasets.network import download_if_needed
 
 
 class NumpyDataset(Dataset):
@@ -201,19 +202,27 @@ class ChemistryBinding(Dataset):
     """
 
     def __init__(self, config_dict):
+        download_url = "https://github.com/google-research/graph-attribution/raw/main/data/all_16_logics_train_and_test.zip"
+
         rule = config_dict["rule"]
         train = config_dict["train"]
-        folder = Path("datasets/chem_data")
-        start_file_name = "logic_" + str(rule) + "_"
+        folder = Path(__file__).parent / "chem_data"
+        start_file_name = f"logic_{rule}_"
         end_file_name = "_train.npy" if train else "_test.npy"
 
         try:
-            x_data = np.load(folder / start_file_name + "X" + end_file_name)
-            y_data = np.load(folder / start_file_name + "Y" + end_file_name)
+            download_if_needed(
+                download_path=folder / "data.zip",
+                http_url=download_url,
+                unarchive=True,
+                unarchive_folder=folder,
+            )
+            x_data = np.load(folder / f"{start_file_name}X{end_file_name}")
+            y_data = np.load(folder / f"{start_file_name}Y{end_file_name}")
         except FileNotFoundError:
             chem_featuriser.make_chem_data(rule)
-            x_data = np.load(folder / start_file_name + "X" + end_file_name)
-            y_data = np.load(folder / start_file_name + "Y" + end_file_name)
+            x_data = np.load(folder / f"{start_file_name}X{end_file_name}")
+            y_data = np.load(folder / f"{start_file_name}Y{end_file_name}")
 
         self.n0 = 0
         self.n1 = 0
@@ -292,7 +301,8 @@ class Metabric(Dataset):
     def __init__(self, config_dict):
         rule = config_dict["rule"]
         train = config_dict["train"]
-        path = Path("datasets/metabric_data/")
+        path = Path(__file__).parent / "metabric_data/"
+
         try:
             raw_data = pd.read_csv(path / "METABRIC_RNA_Mutation.csv", low_memory=False)
         except FileNotFoundError:
