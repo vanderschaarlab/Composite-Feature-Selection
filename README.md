@@ -39,9 +39,7 @@ We demonstrate the utility of our model on multiple synthetic tasks and semi-syn
 *Our new metric for determining similarity between sets of discovered group features. Our metric is based on a normalized Jaccard similarity between the ground truth and the discovered groups.*
 
 
-## Getting Started
-
-### Installing Packages
+## Installation and Usage
 We used `python 3.7` for this project. To setup the virtual environment and necessary packages, please run the following commands:
 ```bash
 $ conda create --name compfs python=3.7
@@ -64,9 +62,9 @@ pip install .[testing]
 
 ### Datasets
 The datasets have not been included here to save space. Download each dataset and place in the following folders:
-- Chemisty Data: [Link](https://github.com/google-research/graph-attribution/raw/main/data/all_16_logics_train_and_test.zip), store data in *datasets/chem_data/*
+- Chemisty Data: [Link](https://github.com/google-research/graph-attribution/raw/main/data/all_16_logics_train_and_test.zip), store data in *<library_path>/datasets/chem_data/*
 (copy and paste from the 'all_16_logics_train_and_test' folder)
-- Metabric Data: [Link](https://www.kaggle.com/datasets/raghadalharbi/breast-cancer-gene-expression-profiles-metabric), store data in *datasets/metabric_data/*
+- Metabric Data: [Link](https://www.kaggle.com/datasets/raghadalharbi/breast-cancer-gene-expression-profiles-metabric), store data in *<library_path>/datasets/metabric_data/*
 (copy and paste from the 'archive' folder)
 
 ### Running the Experiments
@@ -91,7 +89,7 @@ For Group Lasso, STG and Concrete Autoencoder we have included Python Notebooks 
 same commands as above, with command line argument `--model stg`, however this is an adapted Ensemble STG with one STG so the hyperparameters have been adjusted accordingly to obtain the same *positive* results.
 
 ### Running CompFS on your Data
-We have included a notebook in the home directory, 'example.ipynb', which demonstrates CompFS on Syn1. Here the data can be easily be replaced with NumPy arrays of custom data, and the hyperparameters of CompFS can be set. The notebook
+We have included a notebook, 'tutorials/example.ipynb', which demonstrates CompFS on Syn1. Here the data can be easily be replaced with NumPy arrays of custom data, and the hyperparameters of CompFS can be set. The notebook
 'standalone_example.ipynb' is the same notebook but with code copied directly rather than imported so that it can be used without requiring imports from the repo.
 
 
