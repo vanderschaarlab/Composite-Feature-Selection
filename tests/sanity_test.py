@@ -31,7 +31,7 @@ compfs_config = {
         "lr": 0.003,
         "lr_decay": 0.99,
         "batchsize": 50,
-        "num_epochs": 20,
+        "num_epochs": 50,
         "loss_func": nn.CrossEntropyLoss(),
         "val_metric": accuracy,
         "in_dim": 500,
