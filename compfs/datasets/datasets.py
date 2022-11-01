@@ -301,13 +301,16 @@ class Metabric(Dataset):
     def __init__(self, config_dict):
         rule = config_dict["rule"]
         train = config_dict["train"]
-        path = Path(__file__).parent / "metabric_data/"
+        folder = Path(__file__).parent / "metabric_data/"
 
         try:
-            raw_data = pd.read_csv(path / "METABRIC_RNA_Mutation.csv", low_memory=False)
+            raw_data = pd.read_csv(
+                folder / "METABRIC_RNA_Mutation.csv",
+                low_memory=False,
+            )
         except FileNotFoundError:
             print(
-                "Data not found, download at: https://www.kaggle.com/datasets/raghadalharbi/breast-cancer-gene-expression-profiles-metabric and place in datasets/metabric_data",
+                f"Data not found, download at: https://www.kaggle.com/datasets/raghadalharbi/breast-cancer-gene-expression-profiles-metabric and place in {folder.resolve()}",
             )
             raise
 
