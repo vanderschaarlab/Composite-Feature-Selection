@@ -3,6 +3,7 @@ import copy
 import torch.nn as nn
 
 from compfs import metrics
+from compfs.datasets import datasets
 from compfs.models import (
     GBDT,
     CompFS,
@@ -15,7 +16,6 @@ from compfs.models import (
     TorchModel,
 )
 from compfs.thresholding_functions import make_lambda_threshold
-from datasets import datasets
 
 default_config = {
     "data_info": {

@@ -2,10 +2,10 @@ import numpy as np
 import torch
 import torch.nn as nn
 
+from compfs.datasets import NumpyDataset
 from compfs.metrics import accuracy, gsim, tpr_fdr
 from compfs.models import CompFS, TorchModel
 from compfs.thresholding_functions import make_lambda_threshold
-from datasets.datasets import NumpyDataset
 
 # Set and print device.
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")

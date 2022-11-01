@@ -1,9 +1,9 @@
 import torch.nn as nn
 
 from compfs import metrics
+from compfs.datasets import datasets
 from compfs.models import CompFS, EnsembleSTG, TorchModel
 from compfs.thresholding_functions import make_top_k_threshold
-from datasets import datasets
 
 metabric_config = {
     "data_info": {
