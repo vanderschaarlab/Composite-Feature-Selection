@@ -1,6 +1,7 @@
 # Composite-Feature-Selection
 [![Tests](https://github.com/vanderschaarlab/Composite-Feature-Selection/actions/workflows/test.yml/badge.svg)](https://github.com/vanderschaarlab/Composite-Feature-Selection/actions/workflows/test.yml)
 [![Tutorials](https://github.com/vanderschaarlab/Composite-Feature-Selection/actions/workflows/test_tutorials.yml/badge.svg)](https://github.com/vanderschaarlab/Composite-Feature-Selection/actions/workflows/test_tutorials.yml)
+[![Paper](https://img.shields.io/badge/paper-NeurIPS%202022-red)](https://openreview.net/forum?id=-9PV7GKwYpM)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/a-norcliffe/Composite-Feature-Selection/blob/master/LICENSE.txt)
 [![Python 3.7+](https://img.shields.io/badge/python-3.7+-blue.svg)](https://www.python.org/downloads/release/python-370/)
 
