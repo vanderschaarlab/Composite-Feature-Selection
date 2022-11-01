@@ -27,7 +27,7 @@ jobs:
       - name: Install dependencies
         run: pip install .[testing]
       - name: pre-commit validation
-        run: pre-commit run --files comfps/*
+        run: pre-commit run --files compfs/*
       - name: Security checks
         run: |
             bandit -r compfs/*
