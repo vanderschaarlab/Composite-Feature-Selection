@@ -7,10 +7,9 @@ import pandas as pd
 import torch
 import torchvision.datasets as visiondatasets
 import torchvision.transforms as transforms
+from datasets import chem_featuriser
 from torch.distributions.multivariate_normal import MultivariateNormal
 from torch.utils.data import Dataset
-
-from datasets import chem_featuriser
 
 
 class NumpyDataset(Dataset):

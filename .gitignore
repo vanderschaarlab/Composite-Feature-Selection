@@ -67,7 +67,6 @@ MANIFEST
 # Per-project virtualenvs
 .venv*/
 .conda*/
-datasets
 generated
 image_bin
 release
