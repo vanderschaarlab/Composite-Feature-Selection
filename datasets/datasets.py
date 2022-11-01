@@ -1,7 +1,6 @@
 """Datasets for CompFS paper."""
 
-import itertools as it
-import os.path as osp
+from pathlib import Path
 
 import numpy as np
 import pandas as pd
@@ -9,7 +8,6 @@ import torch
 import torchvision.datasets as visiondatasets
 import torchvision.transforms as transforms
 from torch.distributions.multivariate_normal import MultivariateNormal
-from torch.distributions.normal import Normal
 from torch.utils.data import Dataset
 
 from datasets import chem_featuriser
@@ -205,17 +203,17 @@ class ChemistryBinding(Dataset):
     def __init__(self, config_dict):
         rule = config_dict["rule"]
         train = config_dict["train"]
-        folder = "datasets/chem_data"
+        folder = Path("datasets/chem_data")
         start_file_name = "logic_" + str(rule) + "_"
         end_file_name = "_train.npy" if train else "_test.npy"
 
         try:
-            x_data = np.load(osp.join(folder, start_file_name + "X" + end_file_name))
-            y_data = np.load(osp.join(folder, start_file_name + "Y" + end_file_name))
+            x_data = np.load(folder / start_file_name + "X" + end_file_name)
+            y_data = np.load(folder / start_file_name + "Y" + end_file_name)
         except FileNotFoundError:
             chem_featuriser.make_chem_data(rule)
-            x_data = np.load(osp.join(folder, start_file_name + "X" + end_file_name))
-            y_data = np.load(osp.join(folder, start_file_name + "Y" + end_file_name))
+            x_data = np.load(folder / start_file_name + "X" + end_file_name)
+            y_data = np.load(folder / start_file_name + "Y" + end_file_name)
 
         self.n0 = 0
         self.n1 = 0
@@ -294,14 +292,15 @@ class Metabric(Dataset):
     def __init__(self, config_dict):
         rule = config_dict["rule"]
         train = config_dict["train"]
-        path = "./datasets/metabric_data/"
+        path = Path("datasets/metabric_data/")
         try:
-            raw_data = pd.read_csv(path + "METABRIC_RNA_Mutation.csv", low_memory=False)
+            raw_data = pd.read_csv(path / "METABRIC_RNA_Mutation.csv", low_memory=False)
         except FileNotFoundError:
             print(
                 "Data not found, download at: https://www.kaggle.com/datasets/raghadalharbi/breast-cancer-gene-expression-profiles-metabric and place in datasets/metabric_data",
             )
-            exit()
+            raise
+
         self.num_data = 0
         self.n0 = 0
         self.n1 = 0

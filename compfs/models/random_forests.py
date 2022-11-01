@@ -1,10 +1,8 @@
 """Implementations of Random Forests and GBDT."""
 
 # stdlib
-import os
-import os.path as osp
-
 import numpy as np
+from path import Path
 from sklearn.ensemble import GradientBoostingClassifier, RandomForestClassifier
 from sklearn.metrics import roc_auc_score
 
@@ -88,7 +86,7 @@ class RandomForests:
         output = self.predict(x)
         full_model_performance = val_metric(output, y)
         np.save(
-            osp.join(folder, "full_model_performance.npy"),
+            Path(folder) / "full_model_performance.npy",
             np.array([full_model_performance]),
         )
         print(

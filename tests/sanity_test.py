@@ -1,24 +1,10 @@
-import sys
-
-sys.path.insert(0, "../")
-
-from functools import reduce
-
 import numpy as np
 import torch
 import torch.nn as nn
-import torch.nn.functional as F
-import torch.optim as optim
-from torch.utils.data import DataLoader, Dataset
 
-from compfs.base_model import TorchModel
-from compfs.compfs import CompFS
-from compfs.metrics import accuracy, gsim, mse, tpr_fdr
-from compfs.thresholding_functions import (
-    make_lambda_threshold,
-    make_std_threshold,
-    make_top_k_threshold,
-)
+from compfs.metrics import accuracy, gsim, tpr_fdr
+from compfs.models import CompFS, TorchModel
+from compfs.thresholding_functions import make_lambda_threshold
 from datasets.datasets import NumpyDataset
 
 # Set and print device.

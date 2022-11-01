@@ -3,16 +3,18 @@ import copy
 import torch.nn as nn
 
 from compfs import metrics
-from compfs.base_model import Oracle, OracleCluster, SKLearnModel, TorchModel
-from compfs.compfs import CompFS
-from compfs.ensemble_stg import EnsembleSTG
-from compfs.lasso import Lasso
-from compfs.random_forests import GBDT, RandomForests
-from compfs.thresholding_functions import (
-    make_lambda_threshold,
-    make_std_threshold,
-    make_top_k_threshold,
+from compfs.models import (
+    GBDT,
+    CompFS,
+    EnsembleSTG,
+    Lasso,
+    Oracle,
+    OracleCluster,
+    RandomForests,
+    SKLearnModel,
+    TorchModel,
 )
+from compfs.thresholding_functions import make_lambda_threshold
 from datasets import datasets
 
 default_config = {
