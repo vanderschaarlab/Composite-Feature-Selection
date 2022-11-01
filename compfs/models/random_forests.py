@@ -1,8 +1,9 @@
 """Implementations of Random Forests and GBDT."""
 
 # stdlib
+from pathlib import Path
+
 import numpy as np
-from path import Path
 from sklearn.ensemble import GradientBoostingClassifier, RandomForestClassifier
 from sklearn.metrics import roc_auc_score
 
