@@ -1,5 +1,7 @@
 # Composite-Feature-Selection
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/a-norcliffe/Composite-Feature-Selection/blob/master/LICENSE.txt)
+[![Tests](https://github.com/vanderschaarlab/Composite-Feature-Selection/actions/workflows/test.yml/badge.svg)](https://github.com/vanderschaarlab/Composite-Feature-Selection/actions/workflows/test.yml)
+[![Tutorials](https://github.com/vanderschaarlab/Composite-Feature-Selection/actions/workflows/test_tutorials.yml/badge.svg)](https://github.com/vanderschaarlab/Composite-Feature-Selection/actions/workflows/test_tutorials.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/a-norcliffe/Composite-Feature-Selection/blob/master/LICENSE.txt)
 [![Python 3.7+](https://img.shields.io/badge/python-3.7+-blue.svg)](https://www.python.org/downloads/release/python-370/)
 
 Official code for the NeurIPS 2022 paper [**Composite Feature Selection using Deep Ensembles**](https://github.com/a-norcliffe/Composite-Feature-Selection)
